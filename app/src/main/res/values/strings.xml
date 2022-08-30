@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">Electronic Subha</string>
+    <string name="edit">Edit</string>
+    <string name="selectone">Select one please</string>
+    <string name="add">Add</string>
+    <string name="edittheker">Please full theker and contty</string>
+    <string name="buttoncount">press</string>
+    <string name="next">next</string>
+    <string name="canceld">Canceld by user!!</string>
+    <string name="areyoushowr">this going to add new deker?</string>
+    <string name="addalarttitle">do you wont to add new deker!!</string>
+    <string name="editalarttitle">Edit this deker!!</string>
+    <string name="areyoushowredit">Do you wont to contnu changeing this deker?</string>
+    <string name="updated">Dekers updated</string>
+    <string name="addworning">this going to add this text to the list!</string>
+    <string name="contnuo">Contnuo</string>
+    <string name="okmessage">changes will be done! is that OK</string>
+    <string name="editmessage">Are you sure that you wont Editing this text?</string>
+    <string name="editworning">Editing!!</string>
+    <string name="emptyworninig">You can not Add or Edit like this! full your empty inputs,please!!</string>
+    <string name="itsemptyworning">Empty!!</string>
+    <string name="delettextmessage">This going to delete this text!</string>
+    <string name="deleteworning">Delete!!</string>
+</resources>

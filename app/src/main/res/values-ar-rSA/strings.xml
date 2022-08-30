@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">السبحةالالكترونية</string>
+    <string name="edit">تحرير</string>
+    <string name="selectone">اختر واحدا</string>
+    <string name="add">إضافة</string>
+    <string name="edittheker">اضف نصا و تكراره</string>
+    <string name="buttoncount">اضغط</string>
+    <string name="next">التالي</string>
+    <string name="canceld">الغي بواسطة المستخدم!!</string>
+    <string name="areyoushowr">هذا سيؤدي لظافة نص  جديد</string>
+    <string name="addalarttitle">هل ترغب بإضافة نص</string>
+    <string name="editalarttitle">تحرير النص</string>
+    <string name="areyoushowredit">هل ترغب في تغير هذا النص؟</string>
+    <string name="updated">تم تحديث النص</string>
+    <string name="addworning">سيؤذي هذا الاجراء لإضافة نص</string>
+    <string name="contnuo">أكمل</string>
+    <string name="okmessage">سيتم تنفيذ التغيرات هل أنت موافق؟</string>
+    <string name="editmessage">هل أنت متأكد من انك تريد تحرير النص</string>
+    <string name="editworning">تحرير!!</string>
+    <string name="emptyworninig">لايمكن ان تضيف أو تحرر بنص فارغ، املأالخانات الفارغه</string>
+    <string name="itsemptyworning">فارغ!!</string>
+    <string name="delettextmessage">هذا سيؤدي لمسح النص من القائمة</string>
+    <string name="deleteworning">مسح!!</string>
+</resources>
