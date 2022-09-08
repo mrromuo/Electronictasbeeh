@@ -22,4 +22,7 @@
     <string name="itsemptyworning">فارغ!!</string>
     <string name="delettextmessage">هذا سيؤدي لمسح النص من القائمة</string>
     <string name="deleteworning">مسح!!</string>
+    <string name="changebackground">تغير خلفية الشاشة</string>
+    <string name="help">مساعدة</string>
+    <string name="polcy">سياسة الخصوصية</string>
 </resources>

@@ -39,7 +39,7 @@ class DataHelper(context: Context?) : SQLiteOpenHelper(context, DATABASE_NAME,nu
      @SuppressLint("Range", "Recycle")
       fun readMyDataBs():ArrayList<Adkar>{
             val list:ArrayList<Adkar> = ArrayList<Adkar>()
-            val query ="SELECT * FROM $TABLE_CONTACTS;"
+            //val query ="SELECT * FROM $TABLE_CONTACTS;"
             val db = this.readableDatabase
             val selectQuery = "SELECT  * FROM $TABLE_CONTACTS"
             var cursor: Cursor? = null
@@ -52,7 +52,7 @@ class DataHelper(context: Context?) : SQLiteOpenHelper(context, DATABASE_NAME,nu
             // ==============================================
             var tId:Int
             var Dk:String
-            var byteArray:ByteArray
+           // var byteArray:ByteArray
             var Times:Int
             var reading:Adkar
             if (cursor.moveToFirst())
@@ -82,7 +82,7 @@ class DataHelper(context: Context?) : SQLiteOpenHelper(context, DATABASE_NAME,nu
 
       fun insertRow(Theker:String, Times:Int){
             val db = this.writableDatabase
-            val byteArray = Theker.toByteArray(charset)
+            //val byteArray = Theker.toByteArray(charset)
             val query ="INSERT INTO $TABLE_CONTACTS ($KEY_THEKER, $KEY_TIMES) VALUES (" + "'"+Theker+"'"+" , "+"'"+Times+"');"
             Log.i("insert() = ", query)
             db.execSQL(query)

@@ -2,8 +2,12 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/maimLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/m1"
+    android:backgroundTint="@color/cardview_dark_background"
+    android:backgroundTintMode="screen"
     tools:context=".MainActivity">
 
     <ProgressBar
@@ -31,20 +35,22 @@
 
     <LinearLayout
         android:id="@+id/linearLayout"
-        android:layout_width="300dp"
+        android:layout_width="match_parent"
         android:layout_height="280dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="16dp"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <ListView
             android:id="@+id/selectingList"
-            android:layout_width="300dp"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="24dp"
             android:layout_marginBottom="64dp"
+            android:backgroundTintMode="screen"
             android:foreground="@color/purple_200"
             android:foregroundGravity="center"
             android:textAlignment="center"
@@ -69,30 +75,15 @@
 
     <TextView
         android:id="@+id/thekeerTV"
-        android:layout_width="203dp"
+        android:layout_width="match_parent"
         android:layout_height="36dp"
-        android:layout_marginBottom="32dp"
         android:gravity="center"
         android:text="سبحان الله"
         android:textSize="16sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/textView"
-        app:layout_constraintEnd_toStartOf="@+id/TargwtNum"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.955" />
-
-    <TextView
-        android:id="@+id/TargwtNum"
-        android:layout_width="102dp"
-        android:layout_height="38dp"
-        android:layout_marginEnd="80dp"
-        android:gravity="center"
-        android:text="34"
-        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/thekeerTV"
-        app:layout_constraintTop_toTopOf="@+id/thekeerTV" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

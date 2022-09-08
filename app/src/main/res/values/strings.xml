@@ -21,4 +21,7 @@
     <string name="itsemptyworning">Empty!!</string>
     <string name="delettextmessage">This going to delete this text!</string>
     <string name="deleteworning">Delete!!</string>
+    <string name="changebackground">Change BackGround</string>
+    <string name="help">Help</string>
+    <string name="polcy">Privacy Policy</string>
 </resources>
