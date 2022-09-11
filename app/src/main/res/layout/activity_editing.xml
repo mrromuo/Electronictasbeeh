@@ -4,14 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
+    android:backgroundTint="@color/cardview_shadow_start_color"
     android:padding="5dp"
-    tools:context=".EditingActivity">
+    tools:context=".EditingActivity"
+    android:orientation="vertical">
 
     <TableRow
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        android:gravity="left">
+        android:gravity="left"
+        tools:ignore="RtlHardcoded">
 
         <ImageView
             android:id="@+id/imageView3"
@@ -43,14 +45,18 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="textPersonName" />
+            android:inputType="textPersonName"
+            android:minHeight="48dp"
+            tools:ignore="SpeakableTextPresentCheck" />
 
         <ImageButton
             android:id="@+id/EditNextBut"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:backgroundTint="@color/cardview_shadow_end_color"
+            android:contentDescription="@string/next"
             app:srcCompat="@mipmap/ic_arrow"
-            tools:ignore="OnClick" />
+            tools:ignore="OnClick,ImageContrastCheck" />
 
     </TableRow>
 
@@ -63,13 +69,18 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="numberDecimal" />
+            android:inputType="numberDecimal"
+            android:minHeight="48dp"
+            tools:ignore="SpeakableTextPresentCheck" />
 
         <ImageButton
             android:id="@+id/EditDeleteBut"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:srcCompat="@android:drawable/ic_menu_delete" />
+            android:layout_width="75dp"
+            android:layout_height="49dp"
+            android:background="@color/cardview_shadow_end_color"
+            android:contentDescription="@string/clicktodelet"
+            app:srcCompat="@android:drawable/ic_menu_delete"
+            tools:ignore="SpeakableTextPresentCheck,ImageContrastCheck" />
 
     </TableRow>
 

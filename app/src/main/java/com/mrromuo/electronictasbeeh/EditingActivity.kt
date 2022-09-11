@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageButton
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.mrromuo.electronictasbeeh.MainActivity.Companion.POSITION
 import com.mrromuo.electronictasbeeh.MainActivity.Companion.list
@@ -38,15 +37,15 @@ class EditingActivity : AppCompatActivity() {
             position = intent.getIntExtra(POSITION, 0)
             Dr = editableList[position]
             changeVal(Dr!!)
-            cancelButton?.setOnClickListener() {
+            cancelButton?.setOnClickListener {
                   finish()
             }
 
-            NextButton?.setOnClickListener() {
+            NextButton?.setOnClickListener {
                   nextposition()
             }
 
-            addButton?.setOnClickListener() {
+            addButton?.setOnClickListener {
                   if (edDkr?.text!!.isNotEmpty() && edDkr?.text!!.isNotBlank() && rdNun?.text!!.isNotBlank() && rdNun?.text!!.isNotEmpty())
                   {
                         val Dkr = edDkr?.text.toString()
@@ -70,7 +69,7 @@ class EditingActivity : AppCompatActivity() {
                   }
             }
 
-            EditButton?.setOnClickListener() {
+            EditButton?.setOnClickListener {
                   if (edDkr?.text!!.isNotEmpty() && edDkr?.text!!.isNotBlank() && rdNun?.text!!.isNotBlank() && rdNun?.text!!.isNotEmpty())
                   {
                         val Dkr = edDkr?.text.toString()
@@ -91,7 +90,7 @@ class EditingActivity : AppCompatActivity() {
 
             }
 
-            OkButton?.setOnClickListener() {
+            OkButton?.setOnClickListener {
                   val builder = androidx.appcompat.app.AlertDialog.Builder(this)
                   builder.setIcon(R.mipmap.ic_alart2)
                         .setMessage(R.string.okmessage)
@@ -105,7 +104,7 @@ class EditingActivity : AppCompatActivity() {
                         .show()
             }
 
-            DeleteBut?.setOnClickListener(){
+            DeleteBut?.setOnClickListener {
                   val builder = androidx.appcompat.app.AlertDialog.Builder(this)
                   builder.setIcon(R.mipmap.ic_alart2)
                         .setMessage(R.string.delettextmessage)
@@ -176,6 +175,6 @@ class EditingActivity : AppCompatActivity() {
 
                   }
                   .show()
-      }
+     }
 
 }

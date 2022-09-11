@@ -10,6 +10,16 @@
     android:backgroundTintMode="screen"
     tools:context=".MainActivity">
 
+    <ImageButton
+        android:id="@+id/menuButom"
+        android:layout_width="58dp"
+        android:layout_height="32dp"
+        android:contentDescription="@string/_0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@android:drawable/btn_dropdown"
+        tools:ignore="SpeakableTextPresentCheck" />
+
     <ProgressBar
         android:id="@+id/progressBar"
         style="?android:attr/progressBarStyleHorizontal"
@@ -27,11 +37,13 @@
         android:layout_marginBottom="24dp"
         android:background="@drawable/button_shape"
         android:text="@string/buttoncount"
+        android:textColor="@color/black"
         app:icon="@android:drawable/ic_menu_send"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="TextContrastCheck" />
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -64,21 +76,25 @@
         android:layout_width="215dp"
         android:layout_height="80dp"
         android:layout_marginBottom="64dp"
-        android:background="@color/cardview_shadow_end_color"
+        android:background="@color/cardview_dark_background"
+        android:backgroundTint="@color/cardview_shadow_end_color"
         android:gravity="center"
-        android:text="0"
-        android:textSize="34sp"
+        android:text="@string/_0"
+        android:textColor="@color/black"
+        android:textSize="48sp"
         app:layout_constraintBottom_toTopOf="@+id/button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.502"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="TextContrastCheck" />
 
     <TextView
         android:id="@+id/thekeerTV"
         android:layout_width="match_parent"
         android:layout_height="36dp"
         android:gravity="center"
-        android:text="سبحان الله"
+        android:text="@string/subhan"
+        android:textColor="@color/black"
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/textView"

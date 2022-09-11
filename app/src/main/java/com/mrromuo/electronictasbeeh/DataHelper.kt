@@ -73,13 +73,6 @@ class DataHelper(context: Context?) : SQLiteOpenHelper(context, DATABASE_NAME,nu
             return list
       }
 
-      fun deleteRow(id:Int){
-            val query = "DELETE FROM COMPANY WHERE $KEY_ID = $id;"
-            val db = this.writableDatabase
-            Log.i("insert() = ", query)
-            db.execSQL(query)
-      }
-
       fun insertRow(Theker:String, Times:Int){
             val db = this.writableDatabase
             //val byteArray = Theker.toByteArray(charset)
@@ -107,10 +100,6 @@ class DataHelper(context: Context?) : SQLiteOpenHelper(context, DATABASE_NAME,nu
             val db = this.writableDatabase
             Log.i("insert() = ", query)
             db.execSQL(query)
-      }
-      fun changeRow(Deker:String,times:Int,id:Int){
-            val db = this.writableDatabase
-            db.execSQL("UPDATE $TABLE_CONTACTS SET $KEY_THEKER=$Deker $KEY_TIMES=$times WHERE $KEY_ID=$id ");
       }
 }
 

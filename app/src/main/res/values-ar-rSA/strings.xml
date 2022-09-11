@@ -25,4 +25,7 @@
     <string name="changebackground">تغير خلفية الشاشة</string>
     <string name="help">مساعدة</string>
     <string name="polcy">سياسة الخصوصية</string>
+    <string name="_0">0</string>
+    <string name="subhan">سبحان الله</string>
+    <string name="clicktodelet">مسح</string>
 </resources>

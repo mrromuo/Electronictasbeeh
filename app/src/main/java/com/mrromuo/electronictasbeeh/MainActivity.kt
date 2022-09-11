@@ -7,6 +7,8 @@ import android.os.*
 import androidx.appcompat.app.AppCompatActivity
 import android.widget.*
 import androidx.annotation.RequiresApi
+import androidx.appcompat.widget.PopupMenu
+import androidx.constraintlayout.widget.ConstraintLayout
 
 class MainActivity : AppCompatActivity() {
       var listView:ListView? =null
@@ -14,10 +16,12 @@ class MainActivity : AppCompatActivity() {
       var seqbar:ProgressBar? = null
       var button:Button? = null
       var thekerTx:TextView? = null
+      var thislayer:ConstraintLayout? = null
       lateinit var sheardata:SharedPreferences
       lateinit var edtor:SharedPreferences.Editor
       lateinit var data :DataHelper
       lateinit var adpter:ArrayAdapter<String>
+      lateinit var mButom:ImageButton
 
       companion object{
              var list:ArrayList<Adkar> = ArrayList()
@@ -29,6 +33,8 @@ class MainActivity : AppCompatActivity() {
             const val KEY_COUNTERVALU = "THECOUNTERVALU"
             const val KEY_SET = "SETCOUNTER"
             const val KEY_POSITION = "POSITION"
+            const val KEY_BACKGROUND = "BackGround"
+            const val  KEY_HELP ="HELP"
       }
 
       @RequiresApi(Build.VERSION_CODES.S)
@@ -42,7 +48,25 @@ class MainActivity : AppCompatActivity() {
             seqbar = findViewById(R.id.progressBar)
             button = findViewById(R.id.button)
             sheardata = getSharedPreferences(LastState, MODE_PRIVATE)
+            mButom = findViewById(R.id.menuButom)
+            thislayer = findViewById(R.id.maimLayout)
+           mButom.setOnClickListener {
+                  val menu= PopupMenu(this,mButom)
+                  menu.menuInflater.inflate(R.menu.mainmnue,menu.menu)
+                  menu.setOnMenuItemClickListener ( PopupMenu.OnMenuItemClickListener { item ->
+                        var intent:Intent? = null
+                        when(item.itemId){
+                              R.id.changebackground  -> intent=Intent(this,backgroundscontroller::class.java)
+                              R.id.help -> intent=Intent(this,help::class.java).putExtra(KEY_HELP,1)
+                              R.id.editing -> intent=Intent(this@MainActivity,EditingActivity::class.java)
+                              R.id.polsy -> intent=Intent(this,help::class.java).putExtra(KEY_HELP,2)
+                        }
+                        startActivity(intent)
+                        true
+                  })
+                 menu.show()
 
+                  }
 
             edtor =sheardata.edit()
             //  ==========    VIBRATOR_MANAGER_SERVICE ============
@@ -60,7 +84,7 @@ class MainActivity : AppCompatActivity() {
 
 
             //                    ========
-            listView?.setOnItemClickListener(){ parent,view , position, id->
+            listView?.setOnItemClickListener { parent, view, position, id->
 
                   val counterValue = list[position]
                   val text = "${counterValue.Deker}  ${counterValue.Count}"
@@ -86,7 +110,7 @@ class MainActivity : AppCompatActivity() {
                   return@setOnItemLongClickListener(true)
             }
             //                         ==========
-            button?.setOnClickListener(){
+            button?.setOnClickListener {
                   if (thkrCounter < setCounter) {
                         ++thkrCounter
                         textView?.text = thkrCounter.toString()
@@ -110,6 +134,14 @@ class MainActivity : AppCompatActivity() {
             listView?.adapter = adpter
 
             thkrCounter = sheardata.getInt(KEY_COUNTERVALU,0)
+            val imageNum = sheardata.getInt(KEY_BACKGROUND,1)
+            val image =when(imageNum){
+                  1 -> R.drawable.m1
+                  2 ->R.drawable.m2
+                  3 -> R.drawable.m3
+                  else -> {R.drawable.m1}
+            }
+            thislayer?.background = getDrawable(image)
             val lastposition = sheardata.getInt(KEY_POSITION,0)
             setCounter = sheardata.getInt(KEY_SET,34)
             if (list.size >0)
