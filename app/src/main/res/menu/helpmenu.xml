@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/Hchangebackground"
+        android:title="@string/changebackground" />
+    <item
+        android:id="@+id/HMain"
+        android:title="@string/main" />
+    <item
+        android:id="@+id/Hedit"
+        android:title="@string/edit" />
+    <item
+        android:id="@+id/Hpolsy"
+        android:title="@string/polcy" />
+</menu>

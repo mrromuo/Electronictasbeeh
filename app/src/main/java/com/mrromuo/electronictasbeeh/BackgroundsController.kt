@@ -1,20 +1,25 @@
 package com.mrromuo.electronictasbeeh
 
+import android.content.Intent
 import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import android.widget.Button
 import android.widget.ImageView
 import com.mrromuo.electronictasbeeh.MainActivity.Companion.KEY_BACKGROUND
 
-class backgroundscontroller : AppCompatActivity() {
-      lateinit var image:ImageView
-      lateinit var buton:Button
-      lateinit var sheardata: SharedPreferences
-      lateinit var edtor: SharedPreferences.Editor
+class BackgroundsController : AppCompatActivity() {
+      private lateinit var image:ImageView
+      private lateinit var buton:Button
+      private lateinit var sheardata: SharedPreferences
+      private lateinit var edtor: SharedPreferences.Editor
+
       override fun onCreate(savedInstanceState: Bundle?) {
             super.onCreate(savedInstanceState)
             setContentView(R.layout.activity_backgroundscontroller)
+            setSupportActionBar(findViewById(R.id.changToolBar))
             image = findViewById(R.id.BKGimage)
             buton =findViewById(R.id.BKGbut)
             sheardata = getSharedPreferences(MainActivity.LastState, MODE_PRIVATE)
@@ -42,5 +47,22 @@ class backgroundscontroller : AppCompatActivity() {
                   edtor.commit()
                   finish()
             }
+      }
+      override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+            menuInflater.inflate(R.menu.changemenu, menu)
+            return true
+      }
+
+      override fun onOptionsItemSelected(item: MenuItem): Boolean {
+            val intent: Intent = when (item.itemId)
+            {
+                  R.id.Cedit -> Intent(this, EditingActivity::class.java)
+                  R.id.Cmain -> Intent(this, MainActivity::class.java)
+                  R.id.Chelp -> Intent(this, Help::class.java).putExtra(MainActivity.KEY_HELP, 1)
+                  R.id.Cpolsy -> Intent(this, Help::class.java).putExtra(MainActivity.KEY_HELP, 2)
+                  else -> Intent(this, Help::class.java).putExtra(MainActivity.KEY_HELP, 1)
+            }
+            startActivity(intent)
+            return super.onOptionsItemSelected(item)
       }
 }

@@ -1,7 +1,10 @@
 package com.mrromuo.electronictasbeeh
 
 import android.app.AlertDialog
+import android.content.Intent
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageButton
@@ -10,48 +13,49 @@ import com.mrromuo.electronictasbeeh.MainActivity.Companion.POSITION
 import com.mrromuo.electronictasbeeh.MainActivity.Companion.list
 
 class EditingActivity : AppCompatActivity() {
-      var position = 0
-      var edDkr: EditText? = null
-      var rdNun: EditText? = null
-      var Dr: Adkar? = null
-      var cancelButton: Button? = null
-      var addButton: Button? = null
-      var EditButton: Button? = null
-      var NextButton: ImageButton? = null
-      var OkButton: Button? = null
-      var DeleteBut:ImageButton? =null
-      val editableList = list
+      private var position = 0
+      private var edDkr: EditText? = null
+      private var rdNun: EditText? = null
+      private var adkar: Adkar? = null
+      private var cancelButton: Button? = null
+      private var addButton: Button? = null
+      private var editButton: Button? = null
+      private var nextButton: ImageButton? = null
+      private var OkButton: Button? = null
+      private var deleteBut:ImageButton? =null
+      private val editableList = list
       lateinit var data: DataHelper
       override fun onCreate(savedInstanceState: Bundle?) {
             super.onCreate(savedInstanceState)
             setContentView(R.layout.activity_editing)
+            setSupportActionBar(findViewById(R.id.editToolBar))
             data = DataHelper(this)
             edDkr = findViewById(R.id.EditDekerEdit)
             rdNun = findViewById(R.id.EditCountEdit)
             cancelButton = findViewById(R.id.EditCancelBUT)
             addButton = findViewById(R.id.EditAddBut)
-            EditButton = findViewById(R.id.EditEditBut)
-            NextButton = findViewById(R.id.EditNextBut)
+            editButton = findViewById(R.id.EditEditBut)
+            nextButton = findViewById(R.id.EditNextBut)
             OkButton = findViewById(R.id.EditOkBut)
-            DeleteBut = findViewById(R.id.EditDeleteBut)
+            deleteBut = findViewById(R.id.EditDeleteBut)
             position = intent.getIntExtra(POSITION, 0)
-            Dr = editableList[position]
-            changeVal(Dr!!)
+            adkar = editableList[position]
+            changeVal(adkar!!)
             cancelButton?.setOnClickListener {
                   finish()
             }
 
-            NextButton?.setOnClickListener {
+            nextButton?.setOnClickListener {
                   nextposition()
             }
 
             addButton?.setOnClickListener {
                   if (edDkr?.text!!.isNotEmpty() && edDkr?.text!!.isNotBlank() && rdNun?.text!!.isNotBlank() && rdNun?.text!!.isNotEmpty())
                   {
-                        val Dkr = edDkr?.text.toString()
+                        val dkr = edDkr?.text.toString()
                         val times = rdNun?.text.toString()
-                        val lastmemis = editableList.size - 1
-                        val lastmem = editableList[lastmemis]
+                        val lastnames = editableList.size - 1
+                        val lastmem = editableList[lastnames]
                         val id = lastmem.Id + 1
 
                         val builder = AlertDialog.Builder(this)
@@ -61,7 +65,7 @@ class EditingActivity : AppCompatActivity() {
 
                               }
                               .setPositiveButton(android.R.string.ok) { a, b ->
-                                    addToEditList(Dkr, times, id)
+                                    addToEditList(dkr, times, id)
                               }
                         builder.show()
                   } else {
@@ -69,10 +73,10 @@ class EditingActivity : AppCompatActivity() {
                   }
             }
 
-            EditButton?.setOnClickListener {
+            editButton?.setOnClickListener {
                   if (edDkr?.text!!.isNotEmpty() && edDkr?.text!!.isNotBlank() && rdNun?.text!!.isNotBlank() && rdNun?.text!!.isNotEmpty())
                   {
-                        val Dkr = edDkr?.text.toString()
+                        val deeker = edDkr?.text.toString()
                         val times = rdNun?.text.toString()
                         val builder = AlertDialog.Builder(this)
                         builder.setTitle(R.string.editalarttitle)
@@ -81,7 +85,7 @@ class EditingActivity : AppCompatActivity() {
 
                               }
                               .setPositiveButton(android.R.string.ok) { a, b ->
-                                    editdatalist(Dkr, times)
+                                    editdatalist(deeker, times)
                               }
                         builder.show()
                   } else {
@@ -99,12 +103,12 @@ class EditingActivity : AppCompatActivity() {
 
                         }
                         .setPositiveButton(R.string.contnuo){a,b->
-                              updataDataBase()
+                              upDataDataBase()
                         }
                         .show()
             }
 
-            DeleteBut?.setOnClickListener {
+            deleteBut?.setOnClickListener {
                   val builder = androidx.appcompat.app.AlertDialog.Builder(this)
                   builder.setIcon(R.mipmap.ic_alart2)
                         .setMessage(R.string.delettextmessage)
@@ -122,12 +126,12 @@ class EditingActivity : AppCompatActivity() {
       private fun deletetext() {
             val thisposition = editableList[position]
             editableList.remove(thisposition)
-            Dr = editableList[position]
-            changeVal(Dr!!)
+            adkar = editableList[position]
+            changeVal(adkar!!)
 
       }
 
-      private fun updataDataBase() {
+      private fun upDataDataBase() {
             list = editableList
             data.DeleteAll()
             for (item in editableList) {
@@ -162,8 +166,8 @@ class EditingActivity : AppCompatActivity() {
 
       fun nextposition() {
             position = if (position < editableList.size - 1) ++position else 0
-            Dr = editableList[position]
-            changeVal(Dr!!)
+            adkar = editableList[position]
+            changeVal(adkar!!)
       }
 
       fun worningForEmpty() {
@@ -176,5 +180,22 @@ class EditingActivity : AppCompatActivity() {
                   }
                   .show()
      }
+      override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+            menuInflater.inflate(R.menu.editmenu, menu)
+            return true
+      }
+
+      override fun onOptionsItemSelected(item: MenuItem): Boolean {
+            val intent: Intent = when (item.itemId)
+            {
+                  R.id.Echangebackground-> Intent(this, BackgroundsController::class.java)
+                  R.id.EMain -> Intent(this, MainActivity::class.java)
+                  R.id.Ehelp -> Intent(this, Help::class.java).putExtra(MainActivity.KEY_HELP, 1)
+                  R.id.Epolsy -> Intent(this, Help::class.java).putExtra(MainActivity.KEY_HELP, 2)
+                  else -> Intent(this, Help::class.java).putExtra(MainActivity.KEY_HELP, 1)
+            }
+            startActivity(intent)
+            return super.onOptionsItemSelected(item)
+      }
 
 }

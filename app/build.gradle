@@ -4,13 +4,13 @@ plugins {
 }
 
 android {
-    compileSdk 32
+    compileSdk 33
 
     defaultConfig {
         applicationId "com.mrromuo.electronictasbeeh"
-        minSdk 29
-        targetSdk 32
-        versionCode 3
+        minSdk 28
+        targetSdk 33
+        versionCode 4
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
@@ -29,11 +29,12 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+    namespace 'com.mrromuo.electronictasbeeh'
 }
 
 dependencies {
 
-    implementation 'androidx.core:core-ktx:1.8.0'
+    implementation 'androidx.core:core-ktx:1.9.0'
     implementation 'androidx.appcompat:appcompat:1.5.1'
     implementation 'com.google.android.material:material:1.6.1'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'

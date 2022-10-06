@@ -9,6 +9,16 @@
     tools:context=".EditingActivity"
     android:orientation="vertical">
 
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/editToolBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:title="@string/app_name"
+        app:titleTextAppearance="@style/TextAppearance.AppCompat.Large"/>
+
     <TableRow
         android:layout_width="match_parent"
         android:layout_height="100dp"
@@ -42,12 +52,11 @@
 
         <EditText
             android:id="@+id/EditDekerEdit"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            style="@style/Editingbox"
             android:ems="10"
             android:inputType="textPersonName"
-            android:minHeight="48dp"
-            tools:ignore="SpeakableTextPresentCheck" />
+            tools:ignore="SpeakableTextPresentCheck"
+            android:autofillHints="" />
 
         <ImageButton
             android:id="@+id/EditNextBut"
@@ -66,11 +75,9 @@
 
         <EditText
             android:id="@+id/EditCountEdit"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            style="@style/Editingbox"
             android:ems="10"
             android:inputType="numberDecimal"
-            android:minHeight="48dp"
             tools:ignore="SpeakableTextPresentCheck" />
 
         <ImageButton
