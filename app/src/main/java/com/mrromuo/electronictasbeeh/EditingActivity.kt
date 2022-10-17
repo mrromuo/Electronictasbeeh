@@ -25,6 +25,7 @@ class EditingActivity : AppCompatActivity() {
       private var deleteBut:ImageButton? =null
       private val editableList = list
       lateinit var data: DataHelper
+
       override fun onCreate(savedInstanceState: Bundle?) {
             super.onCreate(savedInstanceState)
             setContentView(R.layout.activity_editing)
@@ -157,7 +158,6 @@ class EditingActivity : AppCompatActivity() {
             editableList.add(newDekeris)
       }
 
-
       fun changeVal(valu: Adkar) {
             edDkr?.setText(valu.Deker)
             rdNun?.setText(valu.Count.toString())
@@ -180,6 +180,7 @@ class EditingActivity : AppCompatActivity() {
                   }
                   .show()
      }
+
       override fun onCreateOptionsMenu(menu: Menu?): Boolean {
             menuInflater.inflate(R.menu.editmenu, menu)
             return true

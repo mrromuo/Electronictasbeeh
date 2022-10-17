@@ -9,17 +9,19 @@ import android.view.Menu
 import android.view.MenuItem
 import android.webkit.WebView
 import android.widget.LinearLayout
+import android.widget.Toolbar
 
 class Help : AppCompatActivity() {
       //lateinit var webViewTitle: TextView
       private lateinit var webViewWeb: WebView
       private lateinit var weblayout: LinearLayout
-
+      //private lateinit var toolbar:Toolbar
       @SuppressLint("SetJavaScriptEnabled")
       override fun onCreate(savedInstanceState: Bundle?) {
             super.onCreate(savedInstanceState)
             setContentView(R.layout.activity_help)
             setSupportActionBar(findViewById(R.id.helpToolBar))
+            //toolbar = findViewById(R.id.helpToolBar)
 
             //webViewTitle = findViewById(R.id.webViewText)
             weblayout = findViewById(R.id.helpviewer)
@@ -28,7 +30,7 @@ class Help : AppCompatActivity() {
             val myJob = intent?.getInt(MainActivity.KEY_HELP,1)
             val website  = if(myJob == 1) "https://mrromuo.com/electronic-tasbeeh-app/" else "https://mrromuo.com/programing/electronic-tasbeeh-app/privacy-policy/"
             val text = if (myJob ==1)getText(R.string.help) else getString(R.string.polcy)
-            //webViewTitle.text = text
+            //toolbar.title = text
             webViewWeb.settings.javaScriptEnabled = true
             webViewWeb.settings.setSupportZoom(true)
             webViewWeb.loadUrl(website)

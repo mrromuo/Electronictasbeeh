@@ -22,7 +22,6 @@ class MainActivity : AppCompatActivity() {
       lateinit var edtor: SharedPreferences.Editor
       lateinit var data: DataHelper
       lateinit var adpter: ArrayAdapter<String>
-      //lateinit var mButom:ImageButton
 
       companion object {
             var list: ArrayList<Adkar> = ArrayList()
@@ -52,23 +51,6 @@ class MainActivity : AppCompatActivity() {
             button = findViewById(R.id.button)
             sheardata = getSharedPreferences(LastState, MODE_PRIVATE)
             thislayer = findViewById(R.id.maimLayout)
-//           mButom.setOnClickListener {
-//                  val menu= PopupMenu(this,mButom)
-//                  menu.menuInflater.inflate(R.menu.mainmnue,menu.menu)
-//                  menu.setOnMenuItemClickListener ( PopupMenu.OnMenuItemClickListener { item ->
-//                        var intent:Intent? = null
-//                        when(item.itemId){
-//                              R.id.changebackground  -> intent=Intent(this,backgroundscontroller::class.java)
-//                              R.id.help -> intent=Intent(this,help::class.java).putExtra(KEY_HELP,1)
-//                              R.id.editing -> intent=Intent(this@MainActivity,EditingActivity::class.java)
-//                              R.id.polsy -> intent=Intent(this,help::class.java).putExtra(KEY_HELP,2)
-//                        }
-//                        startActivity(intent)
-//                        true
-//                  })
-//                 menu.show()
-//
-//                  }
 
             edtor = sheardata.edit()
             //  ==========    VIBRATOR_MANAGER_SERVICE ============

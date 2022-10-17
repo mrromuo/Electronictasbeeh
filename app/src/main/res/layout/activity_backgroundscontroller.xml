@@ -28,14 +28,13 @@
 
     <ImageView
         android:id="@+id/BKGimage"
-        android:layout_width="356dp"
-        android:layout_height="610dp"
+        android:layout_width="@dimen/imageW"
+        android:layout_height="@dimen/imageH"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.545"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/changToolBar"
-        app:layout_constraintVertical_bias="0.061"
+        app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/m3" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

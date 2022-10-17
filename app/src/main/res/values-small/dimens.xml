@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="titels">20sp</dimen>
+    <dimen name="imageW">200dp</dimen>
+    <dimen name="imageH">350dp</dimen>
+</resources>

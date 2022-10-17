@@ -52,7 +52,7 @@
 
         <EditText
             android:id="@+id/EditDekerEdit"
-            style="@style/Editingbox"
+            style="@style/EditingBox"
             android:ems="10"
             android:inputType="textPersonName"
             tools:ignore="SpeakableTextPresentCheck"
@@ -75,7 +75,7 @@
 
         <EditText
             android:id="@+id/EditCountEdit"
-            style="@style/Editingbox"
+            style="@style/EditingBox"
             android:ems="10"
             android:inputType="numberDecimal"
             tools:ignore="SpeakableTextPresentCheck" />

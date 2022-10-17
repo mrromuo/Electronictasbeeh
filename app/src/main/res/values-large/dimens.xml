@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="titels">25sp</dimen>
-    <dimen name="imageW">300dp</dimen>
-    <dimen name="imageH">450dp</dimen>
+    <dimen name="imageW">400dp</dimen>
+    <dimen name="imageH">600dp</dimen>
 </resources>

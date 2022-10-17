@@ -28,5 +28,6 @@
     <string name="_0">0</string>
     <string name="subhan">سبحان الله</string>
     <string name="clicktodelet">مسح</string>
-    <string name="main">beck to main page</string>
+    <string name="right">يمين</string>
+    <string name="main">العودة الى صقحة التسبيح</string>
 </resources>
