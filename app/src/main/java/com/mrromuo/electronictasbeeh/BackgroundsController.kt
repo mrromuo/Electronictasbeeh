@@ -28,19 +28,19 @@ class BackgroundsController : AppCompatActivity() {
             var vimage =when(thisImage){
                   1 -> R.drawable.m1
                   2 ->R.drawable.m2
-                  3 -> R.drawable.m3
+                  3 -> R.drawable.m38
                   else -> {R.drawable.m1}
             }
             image.setImageResource(vimage)
             image.setOnClickListener {
-                  vimage = if (vimage == R.drawable.m1) R.drawable.m2 else if (vimage == R.drawable.m2) R.drawable.m3 else R.drawable.m1
+                  vimage = if (vimage == R.drawable.m1) R.drawable.m2 else if (vimage == R.drawable.m2) R.drawable.m38 else R.drawable.m1
                   image.setImageResource(vimage)
             }
             buton.setOnClickListener {
                   val num = when(vimage){
                         R.drawable.m1 -> 1
                         R.drawable.m2 ->2
-                        R.drawable.m3 ->3
+                        R.drawable.m38 ->3
                         else -> 1
                   }
                   edtor.putInt(KEY_BACKGROUND,num)

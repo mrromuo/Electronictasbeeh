@@ -101,7 +101,9 @@ class MainActivity : AppCompatActivity() {
                   edtor.commit()
 
             }
-            //                     ==========
+            //          =======         LIST VIEW         ==========
+
+
             listView?.setOnItemLongClickListener { parent, view, position, id ->
                   Toast.makeText(
                         this,
@@ -140,15 +142,16 @@ class MainActivity : AppCompatActivity() {
       override fun onResume() {
             super.onResume()
             readTheList()
-            adpter = ArrayAdapter(this, android.R.layout.simple_list_item_1, thkrList)
-            listView?.adapter = adpter
+            listView?.adapter = MyListAdaptor(this, thkrList)
+            //adpter = ArrayAdapter(this, android.R.layout.simple_list_item_1, thkrList)
+            //listView?.adapter = adpter
 
             thkrCounter = sheardata.getInt(KEY_COUNTERVALU, 0)
             val imageNum = sheardata.getInt(KEY_BACKGROUND, 1)
             val image = when (imageNum) {
                   1 -> R.drawable.m1
                   2 -> R.drawable.m2
-                  3 -> R.drawable.m3
+                  3 -> R.drawable.m38
                   else -> {
                         R.drawable.m1
                   }
