@@ -24,6 +24,7 @@ class MyListAdaptor (private val context: Activity,
             val button = rowView.findViewById(R.id.localEditButton) as ImageButton
             // filling data in the list:
             textView.text = deeker[position]
+
             // Action of the button
             button.setOnClickListener(){
                   val intent = Intent(context, EditingActivity::class.java)
@@ -33,3 +34,5 @@ class MyListAdaptor (private val context: Activity,
             return rowView
       }
 }
+
+

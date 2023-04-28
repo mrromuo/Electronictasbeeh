@@ -61,7 +61,7 @@
         <ImageButton
             android:id="@+id/EditNextBut"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:backgroundTint="@color/cardview_shadow_end_color"
             android:contentDescription="@string/next"
             app:srcCompat="@mipmap/ic_arrow"
@@ -76,6 +76,7 @@
         <EditText
             android:id="@+id/EditCountEdit"
             style="@style/Editingbox"
+            android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="numberDecimal"
             tools:ignore="SpeakableTextPresentCheck" />

@@ -1,15 +1,19 @@
 package com.mrromuo.electronictasbeeh
 
+import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.*
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
+import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import android.widget.*
 import androidx.annotation.RequiresApi
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.content.ContextCompat
 
 class MainActivity : AppCompatActivity() {
       var listView: ListView? = null
@@ -18,11 +22,10 @@ class MainActivity : AppCompatActivity() {
       var button: Button? = null
       var thekerTx: TextView? = null
       var thislayer: ConstraintLayout? = null
-      lateinit var sheardata: SharedPreferences
-      lateinit var edtor: SharedPreferences.Editor
+      var sheardata: SharedPreferences? = null
+      var edtor: SharedPreferences.Editor? = null
       lateinit var data: DataHelper
-      lateinit var adpter: ArrayAdapter<String>
-      //lateinit var mButom:ImageButton
+      lateinit var adpter:ArrayAdapter<String>
 
       companion object {
             var list: ArrayList<Adkar> = ArrayList()
@@ -52,25 +55,9 @@ class MainActivity : AppCompatActivity() {
             button = findViewById(R.id.button)
             sheardata = getSharedPreferences(LastState, MODE_PRIVATE)
             thislayer = findViewById(R.id.maimLayout)
-//           mButom.setOnClickListener {
-//                  val menu= PopupMenu(this,mButom)
-//                  menu.menuInflater.inflate(R.menu.mainmnue,menu.menu)
-//                  menu.setOnMenuItemClickListener ( PopupMenu.OnMenuItemClickListener { item ->
-//                        var intent:Intent? = null
-//                        when(item.itemId){
-//                              R.id.changebackground  -> intent=Intent(this,backgroundscontroller::class.java)
-//                              R.id.help -> intent=Intent(this,help::class.java).putExtra(KEY_HELP,1)
-//                              R.id.editing -> intent=Intent(this@MainActivity,EditingActivity::class.java)
-//                              R.id.polsy -> intent=Intent(this,help::class.java).putExtra(KEY_HELP,2)
-//                        }
-//                        startActivity(intent)
-//                        true
-//                  })
-//                 menu.show()
-//
-//                  }
+            edtor = sheardata?.edit()
 
-            edtor = sheardata.edit()
+
             //  ==========    VIBRATOR_MANAGER_SERVICE ============
             val vibratorManager = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
                   val vibratorManager =
@@ -84,7 +71,6 @@ class MainActivity : AppCompatActivity() {
 
             data = DataHelper(this)
 
-
             //                    ========
             listView?.setOnItemClickListener { parent, view, position, id ->
 
@@ -96,9 +82,9 @@ class MainActivity : AppCompatActivity() {
                   textView?.text = thkrCounter.toString()
                   seqbar?.max = setCounter
                   seqbar?.progress = thkrCounter
-                  edtor.putInt(KEY_SET, setCounter)
-                  edtor.putInt(KEY_POSITION, position)
-                  edtor.commit()
+                  edtor?.putInt(KEY_SET, setCounter)
+                  edtor?.putInt(KEY_POSITION, position)
+                  edtor?.commit()
 
             }
             //          =======         LIST VIEW         ==========
@@ -123,8 +109,8 @@ class MainActivity : AppCompatActivity() {
                         ++thkrCounter
                         textView?.text = thkrCounter.toString()
                         seqbar?.progress = thkrCounter
-                        edtor.putInt(KEY_COUNTERVALU, thkrCounter)
-                        edtor.commit()
+                        edtor?.putInt(KEY_COUNTERVALU, thkrCounter)
+                        edtor?.commit()
                   } else {
                         vibratorManager.vibrate(
                               VibrationEffect.createOneShot(
@@ -133,21 +119,18 @@ class MainActivity : AppCompatActivity() {
                               )
                         )
                   }
-
             }
-
-
       }
 
       override fun onResume() {
             super.onResume()
             readTheList()
-            listView?.adapter = MyListAdaptor(this, thkrList)
-            //adpter = ArrayAdapter(this, android.R.layout.simple_list_item_1, thkrList)
-            //listView?.adapter = adpter
+            adpter = ArrayAdapter(this, android.R.layout.simple_list_item_1, thkrList)
+            listView?.adapter = adpter
 
-            thkrCounter = sheardata.getInt(KEY_COUNTERVALU, 0)
-            val imageNum = sheardata.getInt(KEY_BACKGROUND, 1)
+            thkrCounter = sheardata!!.getInt(KEY_COUNTERVALU, 0)
+            val imageNum = sheardata!!.getInt(KEY_BACKGROUND, 1)
+
             val image = when (imageNum) {
                   1 -> R.drawable.m1
                   2 -> R.drawable.m2
@@ -156,9 +139,10 @@ class MainActivity : AppCompatActivity() {
                         R.drawable.m1
                   }
             }
+
             thislayer?.background = getDrawable(image)
-            val lastposition = sheardata.getInt(KEY_POSITION, 0)
-            setCounter = sheardata.getInt(KEY_SET, 34)
+            val lastposition = sheardata!!.getInt(KEY_POSITION, 0)
+            setCounter = sheardata!!.getInt(KEY_SET, 34)
             if (list.size > 0) {
                   val counterValue = list[lastposition]
                   val text = "${counterValue.Deker}  ${counterValue.Count}"
@@ -183,14 +167,27 @@ class MainActivity : AppCompatActivity() {
             }
       }
 
+      fun selectedItem(position:Int) {
+            val counterValue = list[position]
+            val text = "${counterValue.Deker}  ${counterValue.Count}"
+            setCounter = counterValue.Count
+            thekerTx?.text = text
+            thkrCounter = 0
+            textView?.text = thkrCounter.toString()
+            seqbar?.max = setCounter
+            seqbar?.progress = thkrCounter
+            edtor?.putInt(KEY_SET, setCounter)
+            edtor?.putInt(KEY_POSITION, position)
+            edtor?.commit()
+      }
+
       override fun onCreateOptionsMenu(menu: Menu?): Boolean {
             menuInflater.inflate(R.menu.mainmnue, menu)
             return true
       }
 
       override fun onOptionsItemSelected(item: MenuItem): Boolean {
-            val intent: Intent = when (item.itemId)
-            {
+            val intent: Intent = when (item.itemId) {
                   R.id.changebackground -> Intent(this, BackgroundsController::class.java)
                   R.id.editing -> Intent(this, EditingActivity::class.java)
                   R.id.help -> Intent(this, Help::class.java).putExtra(KEY_HELP, 1)
